@@ -7,6 +7,7 @@ import { CarToolModule } from './car-tool/car-tool.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { carReducer } from './reducers/car.reducer';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { AppComponent } from './app.component';
     CarToolModule,
     AppRoutingModule,
     StoreModule.forRoot({
-
+      car: carReducer
     }),
     StoreDevtoolsModule.instrument()
   ],
