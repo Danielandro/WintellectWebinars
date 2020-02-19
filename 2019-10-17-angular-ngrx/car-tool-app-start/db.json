@@ -15,6 +15,14 @@
       "year": 2018,
       "color": "red",
       "price": 125000
+    },
+    {
+      "make": "Ford",
+      "model": "Escort",
+      "year": 1900,
+      "color": "Blue",
+      "price": 1000,
+      "id": 3
     }
   ]
 }

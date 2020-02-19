@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { StoreModule } from "@ngrx/store";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 
 import { CarToolModule } from './car-tool/car-tool.module';
 
@@ -13,7 +15,11 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     CarToolModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({
+
+    }),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [],
   bootstrap: [AppComponent]
