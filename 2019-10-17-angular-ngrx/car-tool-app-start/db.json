@@ -23,6 +23,14 @@
       "color": "Blue",
       "price": 1000,
       "id": 3
+    },
+    {
+      "make": "BMW",
+      "model": "One Series",
+      "year": 2010,
+      "color": "Orange",
+      "price": 4000,
+      "id": 4
     }
   ]
 }

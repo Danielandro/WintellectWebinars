@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { concatMapTo, map } from 'rxjs/operators';
+import { Store } from "@ngrx/store";
 
 import { Car } from '../../models/car';
 import { CarsService } from '../../services/cars.service';
+import { AppState } from "../../../app.state";
+import * as CarActions from "../../../actions/car.actions";
 
 @Component({
   selector: 'car-home',
@@ -18,13 +21,13 @@ export class CarHomeComponent implements OnInit {
 
   editCarId = 0;
 
-  constructor(private carsSvc: CarsService) { }
+  constructor(private store: Store<AppState>, private carsSvc: CarsService) { }
 
   refreshCars(mutate?: Observable<any>) {
 
     const pipes = [
       concatMapTo(this.carsSvc.all()),
-      map( (cars: Car[]) => cars.slice(0, 3)),
+      map((cars: Car[]) => cars.slice(0, 3)),
     ];
 
     (mutate || of(null))
@@ -63,6 +66,10 @@ export class CarHomeComponent implements OnInit {
 
   doAppendCar(newCar: Car) {
     this.refreshCars(this.carsSvc.append(newCar));
+  }
+
+  doAddCar(newCar: Car) {
+    this.store.dispatch(CarActions.addCar({ car: newCar }));
   }
 
 }
